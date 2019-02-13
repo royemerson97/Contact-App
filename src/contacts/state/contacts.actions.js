@@ -1,6 +1,12 @@
 export const ADD_CONTACT = (contactInfo) =>{
     return {
         type : 'ADD_CONTACT',
-        contact : contactInfo
+        payload : contactInfo
+    }
+}
+export const DELETE_CONTACT = (id) =>{
+    return{
+        type: 'DELETE_CONTACT',
+        payload: id
     }
 }

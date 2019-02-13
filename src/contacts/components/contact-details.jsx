@@ -11,10 +11,10 @@ const styles = (theme) => ({
 });
 
 const ContactDetails = (props) => {
-    const {classes, ADD_CONTACT, contacts} = props;
+    const {classes, ADD_CONTACT, state, history} = props;
     return (
         <div className={classes.text}>
-            <button onClick={() => ADD_CONTACT({name : 'test'})}>{contacts.length}</button>
+            <button onClick={() => {ADD_CONTACT({id : new Date(), name : 'test'}); history.push("/contacts")}}>{state.length}</button>
         </div>
     )
 }
@@ -23,7 +23,7 @@ const ContactDetails = (props) => {
 
 const mapStateToProps = state => {
     return{
-        ...state
+        state
     }
 }
 
