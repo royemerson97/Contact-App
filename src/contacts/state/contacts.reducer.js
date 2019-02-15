@@ -6,8 +6,11 @@
         case 'ADD_CONTACT':
             return [...currentState, action.payload]
         case 'DELETE_CONTACT':
-            const contacts = currentState.filter(contact => contact.id !== action.payload);
-            return contacts;
+            return currentState.filter(contact => contact.id !== action.payload);
+        case 'UPDATE_CONTACT':
+            return currentState.find(contact=>
+                contact.id === action.payload.id ? {...contact, name : action.payload.name} : contact
+            );
         default:
             return currentState;
     }
